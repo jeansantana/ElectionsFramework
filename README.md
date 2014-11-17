@@ -6,27 +6,27 @@ O framework oferece uma classes e interfaces trabalhando juntas para prover a co
 ## Pontos fixos
 
 #### Cadastrar Eleitores/Candidatos
-	* O eleitor deve ter um nome, cpf, data de nascimento.
-	* O candidato deve ter um nome, cpf, e uma chave que o represente como candidato (por exemplo, 13, 45, “BR”, “FR”, “EUA”).
+* O eleitor deve ter um nome, cpf, data de nascimento.
+* O candidato deve ter um nome, cpf, e uma chave que o represente como candidato (por exemplo, 13, 45, “BR”, “FR”, “EUA”).
 
 #### Cadastrar Cargos
-	* A eleição deve ter a definição dos cargos, os quais serão disputados pelos candidatos.
+* A eleição deve ter a definição dos cargos, os quais serão disputados pelos candidatos.
 
 #### Votar no candidato 
-	* Cada eleitor deve votar em seu candidado. (A funcionalidade de voto pode ser extesível, voto branco ou nulo, por exemplo).
+* Cada eleitor deve votar em seu candidado. (A funcionalidade de voto pode ser extesível, voto branco ou nulo, por exemplo).
 
 #### Cadastrar Eleição
-	* A eleição deve conter os cargos dentre os cadastrados para essa eleição.
+* A eleição deve conter os cargos dentre os cadastrados para essa eleição.
 
 ## Ponto de extensão
 
 ####  Regras/condições da eleição para cada cargo.
-	* O voto de cada eleitor terá um impacto diferente sobre o resultado da eleição.
+* O voto de cada eleitor terá um impacto diferente sobre o resultado da eleição.
 
 #### Diferenciar eleitores
-	*Cada eleitor tem um idenficador (além do CPF) que é importante para diferenciá-lo dentro de um certo contexto (por exemplo, em uma eleição para reitor de uma universidade, o identificador desse aluno para esse contexto é sua matrícula).
+* Cada eleitor tem um idenficador (além do CPF) que é importante para diferenciá-lo dentro de um certo contexto (por exemplo, em uma eleição para reitor de uma universidade, o identificador desse aluno para esse contexto é sua matrícula).
 #### Diferenciar cargos
-	* Os cargos variam para cada contexto de eleição, por exemplo: prefeito, presidente, reitor de uma universidade, representante estudantil, etc.
+* Os cargos variam para cada contexto de eleição, por exemplo: prefeito, presidente, reitor de uma universidade, representante estudantil, etc.
 
 ## Aplicações
 
