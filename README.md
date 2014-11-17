@@ -1,5 +1,6 @@
-# Contexto
-------------------
+# Elections Framework
+
+## Contexto
 
 O framework oferece uma classes e interfaces trabalhando juntas para prover a construção de uma sistema de eleições de cargos políticos ou administrativos. 
 
@@ -50,5 +51,7 @@ O framework oferece uma classes e interfaces trabalhando juntas para prover a co
 * **Eleitores:** professores e alunos. 
 * **Regras:** o aluno só é eleito se a quantidade de votos for 10% superior ao segundo lugar. Professores têm 20% a mais de peso nos votos.
 * **Fórmula** = `0.7*votos_professores + 0.3*votos_alunos`
+
+Autores: Jean Silva e Gabriel Vasiljevic
 
 
