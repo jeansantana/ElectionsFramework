@@ -26,6 +26,7 @@ O framework oferece uma classes e interfaces trabalhando juntas para prover a co
 
 #### Diferenciar eleitores
 * Cada eleitor tem um idenficador (além do CPF) que é importante para diferenciá-lo dentro de um certo contexto (por exemplo, em uma eleição para reitor de uma universidade, o identificador desse aluno para esse contexto é sua matrícula).
+
 #### Diferenciar cargos
 * Os cargos variam para cada contexto de eleição, por exemplo: prefeito, presidente, reitor de uma universidade, representante estudantil, etc.
 
