@@ -32,23 +32,23 @@ O framework oferece uma classes e interfaces trabalhando juntas para prover a co
 
 ### Eleição para cargos políticos
 #### Exemplo
-..1. **Cargos:** Prefeito
-..2. **Eleitores:** cidadãos acima de 16 anos 
-..3. **Regras:** O candidato é eleito com a maioridade dos votos
-..4. **Fórmula** = Somatório de votos
+* **Cargos:** Prefeito
+* **Eleitores:** cidadãos acima de 16 anos 
+* **Regras:** O candidato é eleito com a maioridade dos votos
+* **Fórmula** = Somatório de votos
 
 ### Eleição para cargos administrativos
 #### Exemplo
-..1. **Cargos:** Reitor
-..2. **Eleitores:** Funcionários, professores e alunos. 
-..3. **Regras:** O reitor é eleito com a maioridade dos votos. Professores e funcionários têm 5% a mais de peso nos votos.
-..4. **Fórmula** = `0.35*votos_funcionarios + 0.35*votos_professores + 0.3*votos_alunos`
+* **Cargos:** Reitor
+* **Eleitores:** Funcionários, professores e alunos. 
+* **Regras:** O reitor é eleito com a maioridade dos votos. Professores e funcionários têm 5% a mais de peso nos votos.
+* **Fórmula** = `0.35*votos_funcionarios + 0.35*votos_professores + 0.3*votos_alunos`
 
 ### Eleição para títulos
 #### Exemplo  
-..1. **Cargo:** Melhor aluno. 
-..2. **Eleitores:** professores e alunos. 
-..3. **Regras:** o aluno só é eleito se a quantidade de votos for 10% superior ao segundo lugar. Professores têm 20% a mais de peso nos votos.
-..4. **Fórmula** = `0.7*votos_professores + 0.3*votos_alunos`
+* **Cargo:** Melhor aluno. 
+* **Eleitores:** professores e alunos. 
+* **Regras:** o aluno só é eleito se a quantidade de votos for 10% superior ao segundo lugar. Professores têm 20% a mais de peso nos votos.
+* **Fórmula** = `0.7*votos_professores + 0.3*votos_alunos`
 
 
