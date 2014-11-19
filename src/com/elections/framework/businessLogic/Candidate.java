@@ -2,7 +2,7 @@ package com.elections.framework.businessLogic;
 
 import java.text.ParseException;
 
-public class Candidate extends Person {
+public class Candidate extends Person{
 	
 	protected int qttVotes;
 	protected double pontuation; //score on election according to formula's role 
@@ -40,5 +40,7 @@ public class Candidate extends Person {
 	
 	public void setIdentifier(Identifier<?> identifier) {
 		this.identifier = identifier;
-	}	
+	}
+
+
 }
