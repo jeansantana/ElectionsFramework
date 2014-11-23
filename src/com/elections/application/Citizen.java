@@ -1,8 +1,10 @@
-package com.elections.framework.businessLogic;
+package com.elections.application;
 
 import java.text.ParseException;
 
-public class Citizen extends Voter{
+import com.elections.framework.businessLogic.Voter;
+
+public class Citizen extends Voter {
 
 	public Citizen(String name, String cpf, String dateBirth, double influence) throws ParseException {
 		super(name, cpf, dateBirth, influence);

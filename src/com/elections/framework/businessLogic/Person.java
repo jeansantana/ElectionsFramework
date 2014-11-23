@@ -6,20 +6,38 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Person {
+	
 	protected String name;
 	protected String cpf;
 	protected Date dateBirth;
+	protected IPlace place;
 
 	public Person() {
+		
 	}
 
 	public Person(String name, String cpf, String dateBirth) throws ParseException {
 		this.name = name;
 		this.cpf = cpf;
 		formatDate(dateBirth);
-		//System.out.println(dateBirth);
+		this.place = null;
 	}
 
+	public Person(String name, String cpf, String dateBirth, IPlace place) throws ParseException {
+		this.name = name;
+		this.cpf = cpf;
+		formatDate(dateBirth);
+		this.place = place;
+	}
+	
+	public IPlace getPlace() {
+		return place;
+	}
+	
+	public void setPlace(IPlace place) {
+		this.place = place;
+	}
+	
 	public String getName() {
 		return name;
 	}
