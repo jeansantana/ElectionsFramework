@@ -7,6 +7,7 @@ public class Candidate extends Person{
 	protected int qttVotes;
 	protected double pontuation; //score on election according to formula's role 
 	protected Identifier<?> identifier;
+	private Role role;
 	
 	public Candidate() {
 	}
@@ -40,6 +41,14 @@ public class Candidate extends Person{
 	
 	public void setIdentifier(Identifier<?> identifier) {
 		this.identifier = identifier;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 
