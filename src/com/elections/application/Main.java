@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.elections.framework.businessLogic.Candidate;
 import com.elections.framework.businessLogic.Election;
-import com.elections.framework.businessLogic.ElectionServices;
 import com.elections.framework.businessLogic.Identifier;
 import com.elections.framework.businessLogic.InvalidIdentifierException;
 import com.elections.framework.dataAccess.CandidateDAO;
@@ -18,7 +17,7 @@ public class Main {
 	public static void main(String[] args) throws ParseException {
 		//Person c = new Candidate("Wendell", "31231507891", "12-05-2011");
 		//System.out.println(c.getStrDateBirth());
-		ElectionServices electionServices = new ElectionServices();
+		ElectionMayorServices electionServices = new ElectionMayorServices();
 		Election election = new Election();
 		election.setName("Votacao para prefeito");
 		ElectionDAO.getInstance().registerElection(election);

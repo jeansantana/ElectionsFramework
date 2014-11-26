@@ -5,6 +5,7 @@ import java.util.List;
 public abstract class Place implements IPlace {
 	
 	protected Place child;
+	protected String typePlace;// must be unique
 	protected String name;
 	protected int idPlace;
 	protected List<Candidature> candidatures;//chapas
@@ -19,11 +20,20 @@ public abstract class Place implements IPlace {
 	 * @param idPlace
 	 * @param candidatures
 	 */
-	public Place(Place child, String name, int idPlace, List<Candidature> candidatures) {
+	public Place(String name, String typePlace, int idPlace, List<Candidature> candidatures, Place child) {
 		this.child = child;
 		this.name = name;
 		this.idPlace = idPlace;
 		this.candidatures = candidatures;
+		this.typePlace = typePlace;
+	}
+	
+	public String getTypePlace() {
+		return typePlace;
+	}
+	
+	public void setTypePlace(String typePlace) {
+		this.typePlace = typePlace;
 	}
 	
 	public List<Candidature> getCandidatures() {
@@ -33,21 +43,17 @@ public abstract class Place implements IPlace {
 	public void setCandidatures(List<Candidature> candidatures) {
 		this.candidatures = candidatures;
 	}
-
-	/**
-	 * @return the parent
-	 */
-	public Place getParent() {
+	
+	@Override
+	public Place getChild() {
+		// TODO Auto-generated method stub
 		return child;
 	}
-
-	/**
-	 * @param parent the parent to set
-	 */
-	public void setParent(Place parent) {
-		this.child = parent;
+	
+	public void setChild(Place child) {
+		this.child = child;
 	}
-
+	
 	/**
 	 * @return the name
 	 */
@@ -79,12 +85,6 @@ public abstract class Place implements IPlace {
 	@Override
 	public void add(Place place) {
 				
-	}
-	//The simplest place has nulll child. The places that have child 
-	@Override
-	public int getCountVotes() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	}	
 
 }

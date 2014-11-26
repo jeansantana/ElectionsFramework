@@ -1,43 +1,38 @@
 package com.elections.framework.businessLogic;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-public class ElectionServices implements IElectionServices {
-
-	public ElectionServices() {
-	}
+public abstract class ElectionServices implements IElectionServices {
 
 	@Override
-	public Report doResult(Election election) {
-		/*ArrayList<Candidate> candidates = election.getCandidates();
-		Collections.sort(candidates, new Comparator<Candidate>() {
-			public int compare(Candidate o1, Candidate o2) {
-				if (o1.getQttVotes() == o2.getQttVotes()) {
-					return 0;
-				} else if (o1.getQttVotes() < o2.getQttVotes()) {
-					return 1;
-				} else {
-					return -1;
-				}
-			}
-		});
-		return candidates;*/
+	public Report doResult(String title, String typePlace, Election election) {
 		
-		
+		for (Place place: election.getPlaces()) {
+			place = getPlaceByType(place, typePlace);
+		}
 		
 		return null;
 	}
 
+	//busca place pelo tipo, estado, pais, cidade são exemplos
+	private Place getPlaceByType(Place place, String typePlace) {
+		Place placeResponse = place;
+		
+		while (placeResponse.getTypePlace() != typePlace && placeResponse != null) {
+			placeResponse = placeResponse.getChild();
+		}
+		return null;
+	}
+
 	@Override
-	public int countCandidateVotes(Election election, Candidate candidate, Place place) throws CandidateNotFoundException {
-		
-		election.findCandidate(candidate.getIdentifier());
-		
-		
-		
+	public int countCandidateVotes(Election election, Candidate candidate,
+			Place place) throws CandidateNotFoundException {
+		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	private int countCandidateVotes(Candidature c, Candidate candidate) {
+		return -1;
+	}
+	
+	private 
 
 }

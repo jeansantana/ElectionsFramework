@@ -1,34 +1,35 @@
 package com.elections.framework.businessLogic;
 
 import java.util.List;
+import java.util.Map;
 
 public class Report {
 	
 	protected String title;
-	protected List<Place> places;
+	protected Map<Candidate, Integer> candidatesVotes;
 	
 	public Report() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Report(String title, List<Place> places) {
+	public Report(String title, Map<Candidate, Integer> candidatesVotes) {
 		this.title = title;
-		this.places = places;
-	}
-
-	/**
-	 * @return the places
-	 */
-	public List<Place> getPlaces() {
-		return places;
-	}
-
-	/**
-	 * @param places the places to set
-	 */
-	public void setPlaces(List<Place> places) {
-		this.places = places;
+		this.candidatesVotes = candidatesVotes;
 	}
 	
+	public String getTitle() {
+		return title;
+	}
 	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public Map<Candidate, Integer> getCandidatesVotes() {
+		return candidatesVotes;
+	}
+	
+	public void setCandidatesVotes(Map<Candidate, Integer> candidatesVotes) {
+		this.candidatesVotes = candidatesVotes;
+	}
 }
