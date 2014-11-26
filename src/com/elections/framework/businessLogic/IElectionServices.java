@@ -1,7 +1,7 @@
 package com.elections.framework.businessLogic;
 
-import java.util.List;
-
 public interface IElectionServices {
-	public List<Candidate> doResult(Election election);
+	public Report doResult(Election election);
+	public int countCandidateVotes(Election election, Candidate candidate, Place place) throws CandidateNotFoundException;
+	//public List<Candidate>
 }

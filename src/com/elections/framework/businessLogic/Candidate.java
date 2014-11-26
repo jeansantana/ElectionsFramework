@@ -4,27 +4,16 @@ import java.text.ParseException;
 
 public class Candidate extends Person{
 	
-	protected int qttVotes;
 	protected double pontuation; //score on election according to formula's role 
 	protected Identifier<?> identifier;
 	private Role role;
 	
-	public Candidate() {
-	}
+	public Candidate() {}
 	
 	public Candidate(String name, String cpf, String dateBirth, Identifier<?> identifier) throws ParseException {
 		super(name, cpf, dateBirth);
-		this.qttVotes = 0;
 		this.pontuation = 0.0;
 		this.identifier = identifier;
-	}
-	
-	public int getQttVotes() {
-		return qttVotes;
-	}
-	
-	public void setQttVotes(int qttVotes) {
-		this.qttVotes = qttVotes;
 	}
 	
 	public double getPontuation() {
@@ -50,6 +39,4 @@ public class Candidate extends Person{
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
-
 }

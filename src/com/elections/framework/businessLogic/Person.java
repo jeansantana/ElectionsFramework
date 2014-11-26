@@ -10,7 +10,7 @@ public abstract class Person {
 	protected String name;
 	protected String cpf;
 	protected Date dateBirth;
-	protected IPlace place;
+	protected Place place;
 
 	public Person() {
 		
@@ -23,18 +23,18 @@ public abstract class Person {
 		this.place = null;
 	}
 
-	public Person(String name, String cpf, String dateBirth, IPlace place) throws ParseException {
+	public Person(String name, String cpf, String dateBirth, Place place) throws ParseException {
 		this.name = name;
 		this.cpf = cpf;
 		formatDate(dateBirth);
 		this.place = place;
 	}
 	
-	public IPlace getPlace() {
+	public Place getPlace() {
 		return place;
 	}
 	
-	public void setPlace(IPlace place) {
+	public void setPlace(Place place) {
 		this.place = place;
 	}
 	

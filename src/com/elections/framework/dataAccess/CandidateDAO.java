@@ -6,6 +6,7 @@ import com.elections.framework.businessLogic.Candidate;
 
 
 public class CandidateDAO implements ICandidateDAO{
+	
 	private static CandidateDAO instance;
 	private ArrayList<Candidate> candidates;
 	
@@ -16,7 +17,7 @@ public class CandidateDAO implements ICandidateDAO{
 		return null;
 	}
 	
-	public CandidateDAO(){
+	private CandidateDAO() {
 		candidates = new ArrayList<Candidate>();
 	}
 	

@@ -1,6 +1,5 @@
 package com.elections.framework.businessLogic;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -11,8 +10,8 @@ public class ElectionServices implements IElectionServices {
 	}
 
 	@Override
-	public List<Candidate> doResult(Election election) {
-		ArrayList<Candidate> candidates = election.getCandidates();
+	public Report doResult(Election election) {
+		/*ArrayList<Candidate> candidates = election.getCandidates();
 		Collections.sort(candidates, new Comparator<Candidate>() {
 			public int compare(Candidate o1, Candidate o2) {
 				if (o1.getQttVotes() == o2.getQttVotes()) {
@@ -24,7 +23,21 @@ public class ElectionServices implements IElectionServices {
 				}
 			}
 		});
-		return candidates;
+		return candidates;*/
+		
+		
+		
+		return null;
+	}
+
+	@Override
+	public int countCandidateVotes(Election election, Candidate candidate, Place place) throws CandidateNotFoundException {
+		
+		election.findCandidate(candidate.getIdentifier());
+		
+		
+		
+		return 0;
 	}
 
 }

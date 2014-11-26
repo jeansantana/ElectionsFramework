@@ -1,38 +1,51 @@
 package com.elections.framework.businessLogic;
 
+import java.util.List;
+
 public abstract class Place implements IPlace {
 	
-	protected IPlace parent;
+	protected Place child;
 	protected String name;
 	protected int idPlace;
+	protected List<Candidature> candidatures;//chapas
 	
 	public Place() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @param parent
+	 * @param child
 	 * @param name
 	 * @param idPlace
+	 * @param candidatures
 	 */
-	public Place(IPlace parent, String name, int idPlace) {
-		this.parent = parent;
+	public Place(Place child, String name, int idPlace, List<Candidature> candidatures) {
+		this.child = child;
 		this.name = name;
 		this.idPlace = idPlace;
+		this.candidatures = candidatures;
+	}
+	
+	public List<Candidature> getCandidatures() {
+		return candidatures;
+	}
+	
+	public void setCandidatures(List<Candidature> candidatures) {
+		this.candidatures = candidatures;
 	}
 
 	/**
 	 * @return the parent
 	 */
-	public IPlace getParent() {
-		return parent;
+	public Place getParent() {
+		return child;
 	}
 
 	/**
 	 * @param parent the parent to set
 	 */
-	public void setParent(IPlace parent) {
-		this.parent = parent;
+	public void setParent(Place parent) {
+		this.child = parent;
 	}
 
 	/**
@@ -61,6 +74,17 @@ public abstract class Place implements IPlace {
 	 */
 	public void setIdPlace(int idPlace) {
 		this.idPlace = idPlace;
+	}
+	
+	@Override
+	public void add(Place place) {
+				
+	}
+	//The simplest place has nulll child. The places that have child 
+	@Override
+	public int getCountVotes() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

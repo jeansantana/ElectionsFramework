@@ -1,28 +1,77 @@
 package com.elections.framework.businessLogic;
 
+import java.util.List;
 import java.util.ArrayList;
 
 import com.elections.framework.dataAccess.CandidateDAO;
 
-
 public class Election {
+
 	private String name;
-	private ArrayList<Candidate> candidates;
-	private ArrayList<Voter> voters;
-	private ArrayList<IElectionRule> rules;
-	
-	public boolean vote(Voter voter, Identifier<?> id){
-		//Search for the candidate in the DAO and increment its qttVotes
-		Candidate candidate = CandidateDAO.getInstance().getCandidateById(id.getValue());
-		if(candidate == null){
-			return false;
-		}
-		
-		candidate.setQttVotes(candidate.getQttVotes() + 1);
-		return true;
+	private List<Place> places;
+	private List<Voter> voters;
+	private List<ElectionRule> rules;
+
+	public Election() {
+		this.places = new ArrayList<Place>();
 	}
 
+	public boolean vote(Voter voter, Identifier<?> id) throws CandidateNotFoundException {
+		
+		Candidate candidate = findCandidate(id);
+		
+		int idxPlaceOnCandidatures = findPlaceIndex(voter.getPlace());
+		Candidature candidature = findCandidature(places.get(idxPlaceOnCandidatures), candidate);
+		candidature.setQttvotes(candidature.getQttvotes() + 1);
+		
+		return true;
+	}
 	
+	public Candidate findCandidate(Identifier<?> id) throws CandidateNotFoundException {
+		Candidate candidate = CandidateDAO.getInstance().getCandidateById(id);
+		
+		if (candidate == null) {
+			throw new CandidateNotFoundException();
+		}
+		
+		return candidate;
+	}
+
+	private Candidature findCandidature(Place place, Candidate candidate) {
+		Candidature result = null;
+		
+		for (Candidature candtt : place.getCandidatures()) {
+			if (candtt.equals(candidate)) {
+				result = candtt;
+			}
+		}
+		
+		return result;
+	}
+
+	private int findPlaceIndex(Place place) {
+		
+		boolean achou = false;
+		int idx = -1;
+		
+		for (int i = 0; i < places.size() && !achou; i++) {
+			if (places.get(i).equals(place)) {
+				achou = true;
+				idx = i;
+			}
+		}
+		
+		return idx;
+	}
+
+	public List<Place> getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(List<Place> places) {
+		this.places = places;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -31,15 +80,7 @@ public class Election {
 		this.name = name;
 	}
 
-	public ArrayList<Candidate> getCandidates() {
-		return candidates;
-	}
-
-	public void setCandidates(ArrayList<Candidate> candidates) {
-		this.candidates = candidates;
-	}
-
-	public ArrayList<Voter> getVoters() {
+	public List<Voter> getVoters() {
 		return voters;
 	}
 
@@ -47,13 +88,11 @@ public class Election {
 		this.voters = voters;
 	}
 
-
-	public ArrayList<IElectionRule> getRules() {
+	public List<ElectionRule> getRules() {
 		return rules;
 	}
 
-
-	public void setRules(ArrayList<IElectionRule> rules) {
+	public void setRules(ArrayList<ElectionRule> rules) {
 		this.rules = rules;
 	}
 }
