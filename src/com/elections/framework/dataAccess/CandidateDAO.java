@@ -10,9 +10,9 @@ public class CandidateDAO implements ICandidateDAO{
 	private static CandidateDAO instance;
 	private ArrayList<Candidate> candidates;
 	
-	public Candidate getCandidateById(Object id){
+	public Candidate getCandidateById(int id){
 		for(Candidate candidate : candidates){
-			if(candidate.getIdentifier().equals(id)) return candidate;
+			if(candidate.getIdentifier() == id) return candidate;
 		}
 		return null;
 	}

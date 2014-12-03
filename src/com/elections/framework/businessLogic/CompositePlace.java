@@ -1,92 +1,38 @@
 package com.elections.framework.businessLogic;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CompositePlace implements IPlace{
+public class CompositePlace extends AbstractPlace{
 
-	protected List<IPlace> childs;
-	protected String typePlace;// must be unique
-	protected String name;
-	protected int idPlace;
+	protected List<AbstractPlace> childs;
 	
-	@Override
-	public int countVotes() {
-		int total = 0;
-		for (IPlace place : childs) {
-			total += place.countVotes();
-		}
-		return total;
-	}	
-	
-	public CompositePlace() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @param child
-	 * @param name
-	 * @param idPlace
-	 * @param candidatures
-	 */
-	public CompositePlace(String name, String typePlace, int idPlace, List<IPlace> childs) {
-		this.childs = childs;
+	public CompositePlace(String name, int idPlace) {
+		childs = new ArrayList<AbstractPlace>();
 		this.name = name;
 		this.idPlace = idPlace;
-		this.typePlace = typePlace;
 	}
 	
-	public String getTypePlace() {
-		return typePlace;
+	public void add(Place place) {
+		childs.add(place);
 	}
 	
-	public void setTypePlace(String typePlace) {
-		this.typePlace = typePlace;
+	@Override
+	public int countVotes(Candidate candidate) {
+		int total = 0;
+		for (AbstractPlace place : childs) {
+			total += place.countVotes(candidate);
+		}
+		return total;
 	}
-	
 
-	public List<IPlace> getChilds() {
+	public List<AbstractPlace> getChilds() {
 		// TODO Auto-generated method stub
 		return childs;
 	}
 	
-	public void setChild(List<IPlace> child) {
+	public void setChild(List<AbstractPlace> child) {
 		this.childs = child;
 	}
-	
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @return the idPlace
-	 */
-	public int getIdPlace() {
-		return idPlace;
-	}
-
-	/**
-	 * @param idPlace the idPlace to set
-	 */
-	public void setIdPlace(int idPlace) {
-		this.idPlace = idPlace;
-	}
-	
-
-	public void add(Place place) {
-		childs.add(place);
-	}
-
-	
-
 
 }

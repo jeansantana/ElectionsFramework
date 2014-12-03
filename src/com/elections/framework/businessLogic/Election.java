@@ -8,26 +8,36 @@ import com.elections.framework.dataAccess.CandidateDAO;
 public class Election {
 
 	private String name;
-	private List<Place> places;
+	private List<AbstractPlace> places;
 	private List<Voter> voters;
 	private List<ElectionRule> rules;
 
 	public Election() {
-		this.places = new ArrayList<Place>();
+		this.places = new ArrayList<AbstractPlace>();
+	}
+	
+	public Election(String name) {
+		this.name = name;
+		this.places = new ArrayList<AbstractPlace>();
+	}
+	
+	public void registerPlace(AbstractPlace place){
+		places.add(place);
 	}
 
-	public boolean vote(Voter voter, Identifier<?> id) throws CandidateNotFoundException {
+	public void vote(Voter voter, int id) throws CandidateNotFoundException {
 		
 		Candidate candidate = findCandidate(id);
 		
-		int idxPlaceOnCandidatures = findPlaceIndex(voter.getPlace());
-		Candidature candidature = findCandidature(places.get(idxPlaceOnCandidatures), candidate);
+		Place placeVoter = voter.getPlace();
+		
+		Candidature candidature = findCandidature(placeVoter, candidate);
+		
 		candidature.setQttvotes(candidature.getQttvotes() + 1);
 		
-		return true;
 	}
 	
-	public Candidate findCandidate(Identifier<?> id) throws CandidateNotFoundException {
+	public Candidate findCandidate(int id) throws CandidateNotFoundException {
 		Candidate candidate = CandidateDAO.getInstance().getCandidateById(id);
 		
 		if (candidate == null) {
@@ -41,7 +51,7 @@ public class Election {
 		Candidature result = null;
 		
 		for (Candidature candtt : place.getCandidatures()) {
-			if (candtt.equals(candidate)) {
+			if (candtt.getCandidate().equals(candidate)) {
 				result = candtt;
 			}
 		}
@@ -64,11 +74,11 @@ public class Election {
 		return idx;
 	}
 
-	public List<Place> getPlaces() {
+	public List<AbstractPlace> getPlaces() {
 		return places;
 	}
 
-	public void setPlaces(List<Place> places) {
+	public void setPlaces(List<AbstractPlace> places) {
 		this.places = places;
 	}
 

@@ -21,6 +21,7 @@ public class Candidature {
 	 * */
 	public Candidature(Candidate candidate) {
 		this.candidate = candidate;
+		this.qttvotes = 0;
 		this.viceCandidate = null;
 	}
 

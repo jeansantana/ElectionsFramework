@@ -4,19 +4,23 @@ import java.util.List;
 import java.util.Map;
 
 public class Report {
-	
+	private int id;
 	protected String title;
-	protected Map<Candidate, Integer> candidatesVotes;
+	protected Map<Integer, Candidate> candidatesVotes;
 	
 	public Report() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Report(String title, Map<Candidate, Integer> candidatesVotes) {
+	public Report(String title, Map<Integer, Candidate> candidatesVotes) {
 		this.title = title;
 		this.candidatesVotes = candidatesVotes;
 	}
 	
+	public Report(Map<Integer, Candidate> candidatesVotes) {
+		this.candidatesVotes = candidatesVotes;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -25,11 +29,19 @@ public class Report {
 		this.title = title;
 	}
 	
-	public Map<Candidate, Integer> getCandidatesVotes() {
+	public Map<Integer, Candidate> getCandidatesVotes() {
 		return candidatesVotes;
 	}
 	
-	public void setCandidatesVotes(Map<Candidate, Integer> candidatesVotes) {
+	public void setCandidatesVotes(Map<Integer, Candidate> candidatesVotes) {
 		this.candidatesVotes = candidatesVotes;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

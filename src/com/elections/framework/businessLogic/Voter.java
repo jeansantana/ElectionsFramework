@@ -10,8 +10,8 @@ public abstract class Voter extends Person {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Voter(String name, String cpf, String dateBirth, double influence) throws ParseException {
-		super(name, cpf, dateBirth);
+	public Voter(String name, String cpf, String dateBirth, Place place, double influence) throws ParseException {
+		super(name, cpf, dateBirth, place);
 		this.influence = influence;
 	}
 
@@ -22,5 +22,4 @@ public abstract class Voter extends Person {
 	public void setInfluence(double influence) {
 		this.influence = influence;
 	}
-
 }

@@ -37,17 +37,7 @@ public class ElectionMayorServices implements IElectionServices {
 	}
 
 	@Override
-	public int countCandidateVotes(Election election, Candidate candidate, Place place) throws CandidateNotFoundException {
-		
-		election.findCandidate(candidate.getIdentifier());
-		
-		
-		
-		return 0;
-	}
-
-	@Override
-	public Report doResult(String title, String typePlace, Election election) {
+	public Report getResult(Election election, Place place) {
 		// TODO Auto-generated method stub
 		return null;
 	}

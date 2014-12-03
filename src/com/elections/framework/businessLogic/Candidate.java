@@ -5,12 +5,12 @@ import java.text.ParseException;
 public class Candidate extends Person{
 	
 	protected double pontuation; //score on election according to formula's role 
-	protected Identifier<?> identifier;
+	protected int identifier;
 	private Role role;
 	
 	public Candidate() {}
 	
-	public Candidate(String name, String cpf, String dateBirth, Identifier<?> identifier) throws ParseException {
+	public Candidate(String name, String cpf, String dateBirth, int identifier) throws ParseException {
 		super(name, cpf, dateBirth);
 		this.pontuation = 0.0;
 		this.identifier = identifier;
@@ -24,11 +24,11 @@ public class Candidate extends Person{
 		this.pontuation = pontuation;
 	}
 	
-	public Identifier<?> getIdentifier() {
+	public int getIdentifier() {
 		return identifier;
 	}
 	
-	public void setIdentifier(Identifier<?> identifier) {
+	public void setIdentifier(int identifier) {
 		this.identifier = identifier;
 	}
 
