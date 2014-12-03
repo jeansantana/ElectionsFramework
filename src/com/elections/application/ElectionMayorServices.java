@@ -16,7 +16,6 @@ public class ElectionMayorServices implements IElectionServices {
 	public ElectionMayorServices() {
 	}
 
-	@Override
 	public Report doResult(Election election) {
 		/*ArrayList<Candidate> candidates = election.getCandidates();
 		Collections.sort(candidates, new Comparator<Candidate>() {
@@ -45,6 +44,12 @@ public class ElectionMayorServices implements IElectionServices {
 		
 		
 		return 0;
+	}
+
+	@Override
+	public Report doResult(String title, String typePlace, Election election) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

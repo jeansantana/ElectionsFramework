@@ -14,18 +14,12 @@ public abstract class ElectionServices implements IElectionServices {
 
 	//busca place pelo tipo, estado, pais, cidade são exemplos
 	private Place getPlaceByType(Place place, String typePlace) {
-		Place placeResponse = place;
-		
-		while (placeResponse.getTypePlace() != typePlace && placeResponse != null) {
-			placeResponse = placeResponse.getChild();
-		}
 		return null;
 	}
 
 	@Override
 	public int countCandidateVotes(Election election, Candidate candidate,
 			Place place) throws CandidateNotFoundException {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
@@ -33,6 +27,5 @@ public abstract class ElectionServices implements IElectionServices {
 		return -1;
 	}
 	
-	private 
 
 }
